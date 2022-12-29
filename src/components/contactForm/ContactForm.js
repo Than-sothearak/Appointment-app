@@ -30,7 +30,7 @@ export const ContactForm = ({
       <input
         value={email}
         type="text"
-        placeholder="Cotact Email"
+        placeholder="Contact Email"
         name="email"
         onChange={(e) => setEmail(e.target.value)}
         required
