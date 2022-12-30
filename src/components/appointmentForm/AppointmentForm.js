@@ -22,8 +22,13 @@ export const AppointmentForm = ({
   };
 
   const getContactNames = () => {
-    return contacts.map((contact) => contact.name);
+    let name = contacts.map((contact) => contact.name);
+    return name;
   };
+
+  const handleChangeContact = (e) => {
+    setContact(e.target.value)
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -43,13 +48,14 @@ export const AppointmentForm = ({
           name="contact"
           value={contact}
           contacts={getContactNames()}
-          onChange={(e) => setContact(e.target.value)}
+          onChange={handleChangeContact}
           placeholder="Appointment With"
         />
       </label>
       <br />
       <label>
         <input
+          placeholder="Date"
           type="date"
           name="date"
           min={getTodayString()}
@@ -61,6 +67,7 @@ export const AppointmentForm = ({
       <br />
       <label>
         <input
+          placeholder="time"
           type="time"
           name="time"
           value={time}
